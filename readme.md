@@ -28,14 +28,14 @@ On the target machine, turn `/etc/nixos` into a flake with the following `flake.
 
           # Machine-specific configuration
           ./hardware-configuration.nix
-          ./local.nix
+          ./configuration.nix
         ];
       };
     };
 }
 ```
 
-Any out-of-band configuration (LUKS devices, extra packages, etc.) goes into `local.nix` (or any other file imported by the flake):
+Any out-of-band configuration (LUKS devices, extra packages, etc.) goes into `configuration.nix` (or any other file imported by the flake):
 
 ```nix
 { pkgs, ... }:
@@ -51,7 +51,7 @@ Any out-of-band configuration (LUKS devices, extra packages, etc.) goes into `lo
 
 ## Updating
 
-Pull in the latest profiles and packages:
+To update the profiles and packages on the target machine, run the following command:
 
 ```bash
 sudo nix flake update --flake /etc/nixos
@@ -59,5 +59,5 @@ sudo nix flake update --flake /etc/nixos
 
 ## Development
 
-To test changes from a local checkout of this repository without pushing them, run `./rebuild.sh`.
-It rebuilds the system with the `linux-setup` input overridden to point to the local checkout.
+To test changes from a local checkout of this repository without pushing them, execute `./rebuild.sh`.
+To update the dependencies of the local checkout, run `./update.sh`.
