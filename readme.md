@@ -4,26 +4,60 @@ This is my current Linux setup, powered by NixOS.
 
 ## Usage
 
-- Clone or download this repository
-- Copy the `profiles/` directory to `/etc/nixos/` (or run `copy.sh`)
-- Update the local `configuration.nix` file to import the corresponding profile
-
-Example:
+On the target machine, turn `/etc/nixos` into a flake with the following `flake.nix`:
 
 ```nix
-{ config, pkgs, ... }:
-
 {
-  imports = [
-    ./hardware-configuration.nix
+  inputs = {
+    # The profiles from this repository
+    linux-setup.url = "github:Tyrrrz/linux-setup";
 
-    # Specify the desired profile
-    ./profiles/nomad.nix
-  ];
+    # Reuse the same nixpkgs to keep everything consistent
+    nixpkgs.follows = "linux-setup/nixpkgs";
+  };
 
-  # Any out-of-band configuration may also be defined here
-  # ...
+  outputs =
+    { nixpkgs, linux-setup, ... }:
+
+    {
+      # The name must match the machine's hostname for `nixos-rebuild` to pick it up automatically
+      nixosConfigurations.nomad = nixpkgs.lib.nixosSystem {
+        modules = [
+          # Specify the desired profile
+          linux-setup.nixosModules.nomad
+
+          # Machine-specific configuration
+          ./hardware-configuration.nix
+          ./local.nix
+        ];
+      };
+    };
 }
 ```
 
-After that, activate the new configuration via `sudo nixos-rebuild switch`.
+Any out-of-band configuration (LUKS devices, extra packages, etc.) goes into `local.nix` (or any other file imported by the flake):
+
+```nix
+{ pkgs, ... }:
+
+{
+  boot.initrd.luks.devices."luks-...".device = "/dev/disk/by-uuid/...";
+
+  environment.systemPackages = with pkgs; [
+    android-tools
+  ];
+}
+```
+
+## Updating
+
+Pull in the latest profiles and packages:
+
+```bash
+sudo nix flake update --flake /etc/nixos
+```
+
+## Development
+
+To test changes from a local checkout of this repository without pushing them, run `./rebuild.sh`.
+It rebuilds the system with the `linux-setup` input overridden to point to the local checkout.

@@ -1,4 +1,4 @@
-{ pkgs, primaryUserName, ... }:
+{ config, pkgs, ... }:
 
 let
   extensions = with pkgs.gnomeExtensions; [
@@ -10,24 +10,26 @@ let
   ];
 in
 {
-  # Enable KDE Connect integration so that GSConnect can work
-  programs.kdeconnect = {
-    enable = true;
-    # The package will be installed at user level (GSConnect)
-    package = null;
-  };
+  config = {
+    # Enable KDE Connect integration so that GSConnect can work
+    programs.kdeconnect = {
+      enable = true;
+      # The package will be installed at user level (GSConnect)
+      package = null;
+    };
 
-  home-manager.users.${primaryUserName} = {
-    home.packages = extensions;
+    home-manager.users.${config.profile.primaryUserName} = {
+      home.packages = extensions;
 
-    dconf.settings = {
-      "org/gnome/shell" = {
-        disable-user-extensions = false;
-        enabled-extensions = map (ext: ext.extensionUuid) extensions;
-      };
+      dconf.settings = {
+        "org/gnome/shell" = {
+          disable-user-extensions = false;
+          enabled-extensions = map (ext: ext.extensionUuid) extensions;
+        };
 
-      "org/gnome/shell/extensions/tophat" = {
-        position-in-panel = "left";
+        "org/gnome/shell/extensions/tophat" = {
+          position-in-panel = "left";
+        };
       };
     };
   };

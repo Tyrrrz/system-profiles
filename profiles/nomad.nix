@@ -1,14 +1,8 @@
 { ... }:
 
-let
-  hostName = "nomad";
-  primaryUserName = "tyrrrz";
-in
 {
-  _module.args = { inherit hostName primaryUserName; };
-
   imports = [
-    ./common/_core.nix
+    ./common/gnome
     ./common/audio.nix
     ./common/bash.nix
     ./common/bluetooth.nix
@@ -16,7 +10,7 @@ in
     ./common/firmware.nix
     ./common/gaming.nix
     ./common/git.nix
-    ./common/gnome
+    ./common/home-manager.nix
     ./common/locale.nix
     ./common/network.nix
     ./common/nix.nix
@@ -27,4 +21,9 @@ in
     ./common/vscode.nix
     ./common/yubikey.nix
   ];
+
+  config = {
+    networking.hostName = "nomad";
+    profile.primaryUserName = "tyrrrz";
+  };
 }
