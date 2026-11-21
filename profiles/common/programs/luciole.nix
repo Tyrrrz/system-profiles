@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   config = {
     # Support for Trash and remote folders
@@ -14,8 +14,22 @@
             browser = {
               view_mode = "list";
               show_hidden = true;
+              show_permanent_deletion = true;
             };
           };
+        };
+
+        # Open in VS Code script
+        xdg.dataFile."luciole/scripts/Open in VS Code" = {
+          executable = true;
+          text = ''
+            #!${pkgs.runtimeShell}
+            if [ "$#" -gt 0 ]; then
+                exec ${pkgs.vscode}/bin/code "$@"
+            else
+                exec ${pkgs.vscode}/bin/code "$PWD"
+            fi
+          '';
         };
 
         gtk = {
