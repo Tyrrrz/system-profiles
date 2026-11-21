@@ -24,11 +24,7 @@
 
           shell = {
             polkit_agent = true;
-
-            # Track app usage
             screen_time_enabled = true;
-
-            # Show external IP in the network widget
             external_ip_enabled = true;
           };
         };
