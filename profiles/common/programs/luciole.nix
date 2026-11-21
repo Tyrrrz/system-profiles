@@ -19,7 +19,7 @@
           };
         };
 
-        # Open in VS Code script
+        # Script: Open in VS Code
         xdg.dataFile."luciole/scripts/Open in VS Code" = {
           executable = true;
           text = ''
