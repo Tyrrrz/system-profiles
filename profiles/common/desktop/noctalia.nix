@@ -36,20 +36,6 @@
             };
           };
 
-          shell = {
-            font_family = "sans-serif";
-
-            polkit_agent = true;
-
-            # Round screen corners
-            screen_corners = {
-              enabled = true;
-            };
-
-            # Show external IP in the network widget
-            external_ip_enabled = true;
-          };
-
           wallpaper = {
             default.path = "${../assets/wallpaper.jpg}";
 
@@ -136,6 +122,7 @@
 
           # Top bar, widgets and panels
           bar.default = {
+            margin_ends = "1%";
             capsule = true;
 
             start = [
@@ -212,59 +199,84 @@
             position = "top_center";
           };
 
-          shell.launcher = {
-            categories = false;
-            compact = true;
-            layout = "simple";
-          };
+          shell = {
+            polkit_agent = true;
 
-          shell.panel = {
-            launcher_placement = "attached";
-            open_near_click_launcher = true;
+            # Round screen corners
+            screen_corners = {
+              enabled = true;
+            };
 
-            clipboard_placement = "attached";
-            open_near_click_clipboard = true;
+            # Track app usage
+            screen_time_enabled = true;
 
-            control_center_placement = "attached";
-            open_near_click_control_center = true;
+            # Show external IP in the network widget
+            external_ip_enabled = true;
 
-            wallpaper_placement = "attached";
-            open_near_click_wallpaper = true;
+            launcher = {
+              categories = false;
+              compact = true;
+              layout = "simple";
+            };
 
-            session_placement = "attached";
-            open_near_click_session = true;
+            panel = {
+              launcher_placement = "attached";
+              launcher_position = "auto";
+              open_near_click_launcher = true;
 
-            polkit_placement = "attached";
-          };
+              clipboard_placement = "attached";
+              clipboard_position = "auto";
+              open_near_click_clipboard = true;
 
-          shell.session = {
-            actions = [
-              {
-                action = "lock";
-                variant = "secondary";
-              }
-              {
-                action = "lock_and_suspend";
-                variant = "secondary";
-              }
-              {
-                action = "logout";
-                variant = "primary";
-              }
-              {
-                action = "reboot";
-                variant = "destructive";
-              }
-              {
-                action = "shutdown";
-                variant = "destructive";
-              }
-            ];
-          };
+              control_center_placement = "attached";
+              control_center_position = "auto";
+              open_near_click_control_center = true;
 
-          shell.window_switcher = {
-            current_workspace_only = true;
-            style = "compact";
+              wallpaper_placement = "attached";
+              wallpaper_position = "auto";
+              open_near_click_wallpaper = true;
+
+              session_placement = "attached";
+              session_position = "auto";
+              open_near_click_session = true;
+
+              polkit_placement = "attached";
+              polkit_position = "auto";
+            };
+
+            session = {
+              actions = [
+                {
+                  action = "lock";
+                  variant = "secondary";
+                }
+                {
+                  action = "lock_and_suspend";
+                  variant = "secondary";
+                }
+                {
+                  action = "logout";
+                  variant = "primary";
+                }
+                {
+                  action = "reboot";
+                  variant = "destructive";
+                }
+                {
+                  action = "shutdown";
+                  variant = "destructive";
+                }
+              ];
+            };
+
+            window_switcher = {
+              current_workspace_only = true;
+              style = "compact";
+            };
+
+            screenshot = {
+              confirm_region = true;
+            };
           };
         };
       };
