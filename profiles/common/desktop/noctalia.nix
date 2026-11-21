@@ -76,7 +76,8 @@
 
             "screen-off" = {
               enabled = true;
-              timeout = 200;
+              timeout = 190;
+              locked_timeout = 10;
               action = "screen_off";
             };
           };
@@ -88,11 +89,6 @@
 
           lockscreen_widgets = {
             enabled = true;
-
-            widget_order = [
-              "lockscreen-clock@eDP-1"
-              "lockscreen-login-box@eDP-1"
-            ];
 
             widget."lockscreen-clock@eDP-1" = {
               type = "clock";
