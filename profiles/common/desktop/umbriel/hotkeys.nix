@@ -6,20 +6,28 @@
       {
         programs.umbriel.settings = {
           keybinds = {
-            # Quick actions
+            # Terminal
             "Mod+Return" = {
               action = "spawn ghostty";
               repeat = false;
             };
+
+            # File manager
+            "Mod+E" = {
+              action = "spawn luciole";
+              repeat = false;
+            };
+
+            # Noctalia actions
             "Mod" = "spawn noctalia msg panel-toggle launcher";
-            "Mod+S" = "spawn noctalia msg panel-toggle control-center";
             "Mod+L" = "spawn noctalia msg session lock";
             "Print" = "spawn noctalia msg screenshot-region";
-            "Shift+Print" = "spawn noctalia msg screenshot-annotate";
+            "Shift+Print" = "spawn noctalia msg screenshot-window";
+            "Mod+Print" = "spawn noctalia msg screenshot-annotate";
             "Alt+Tab" = "spawn noctalia msg window-switcher hold";
             "Alt+Shift+Tab" = "spawn noctalia msg window-switcher hold reverse";
 
-            # Media, volume, and brightness keys, routed through Noctalia so that its OSDs show
+            # Route media buttons through Noctalia so that its OSDs are shown
             "XF86AudioRaiseVolume" = {
               action = "spawn noctalia msg volume-up";
               allow_when_locked = true;
@@ -55,7 +63,27 @@
               allow_when_locked = true;
             };
 
-            # Focus and movement
+            # Workspaces
+            "Mod+1" = "workspace-switch 1";
+            "Mod+2" = "workspace-switch 2";
+            "Mod+3" = "workspace-switch 3";
+            "Mod+4" = "workspace-switch 4";
+            "Mod+5" = "workspace-switch 5";
+            "Mod+6" = "workspace-switch 6";
+            "Mod+7" = "workspace-switch 7";
+            "Mod+8" = "workspace-switch 8";
+            "Mod+9" = "workspace-switch 9";
+            "Mod+Shift+1" = "window-move-to-workspace 1";
+            "Mod+Shift+2" = "window-move-to-workspace 2";
+            "Mod+Shift+3" = "window-move-to-workspace 3";
+            "Mod+Shift+4" = "window-move-to-workspace 4";
+            "Mod+Shift+5" = "window-move-to-workspace 5";
+            "Mod+Shift+6" = "window-move-to-workspace 6";
+            "Mod+Shift+7" = "window-move-to-workspace 7";
+            "Mod+Shift+8" = "window-move-to-workspace 8";
+            "Mod+Shift+9" = "window-move-to-workspace 9";
+
+            # Window focus and movement
             "Mod+Left" = "window-focus-left";
             "Mod+Down" = "window-focus-down";
             "Mod+Up" = "window-focus-up";
@@ -80,15 +108,11 @@
               repeat = false;
             };
             "Mod+M" = {
-              action = "window-toggle-maximize-to-edges";
+              action = "window-toggle-maximize";
               repeat = false;
             };
             "Mod+F" = {
               action = "window-toggle-fullscreen";
-              repeat = false;
-            };
-            "Mod+Ctrl+F" = {
-              action = "window-toggle-maximize";
               repeat = false;
             };
             "Mod+R" = "window-cycle-primary-extent";
@@ -117,26 +141,6 @@
               action = "window-close";
               repeat = false;
             };
-
-            # Workspaces
-            "Mod+1" = "workspace-switch 1";
-            "Mod+2" = "workspace-switch 2";
-            "Mod+3" = "workspace-switch 3";
-            "Mod+4" = "workspace-switch 4";
-            "Mod+5" = "workspace-switch 5";
-            "Mod+6" = "workspace-switch 6";
-            "Mod+7" = "workspace-switch 7";
-            "Mod+8" = "workspace-switch 8";
-            "Mod+9" = "workspace-switch 9";
-            "Mod+Shift+1" = "window-move-to-workspace 1";
-            "Mod+Shift+2" = "window-move-to-workspace 2";
-            "Mod+Shift+3" = "window-move-to-workspace 3";
-            "Mod+Shift+4" = "window-move-to-workspace 4";
-            "Mod+Shift+5" = "window-move-to-workspace 5";
-            "Mod+Shift+6" = "window-move-to-workspace 6";
-            "Mod+Shift+7" = "window-move-to-workspace 7";
-            "Mod+Shift+8" = "window-move-to-workspace 8";
-            "Mod+Shift+9" = "window-move-to-workspace 9";
 
             # Scratchpad
             "Mod+Shift+Space" = {

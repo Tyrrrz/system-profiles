@@ -16,20 +16,6 @@
               show_cheatsheet = false;
             };
 
-            layout = {
-              mode = "scrolling";
-              extent_presets = [
-                0.333
-                0.5
-                0.667
-                1.0
-              ];
-
-              scrolling = {
-                default_extent_fraction = 0.667;
-              };
-            };
-
             input = {
               keyboard = {
                 layout = "us,ua";
@@ -45,6 +31,10 @@
                 natural_scroll = true;
                 tap = true;
               };
+            };
+
+            layout = {
+              mode = "scrolling";
             };
           };
         };
