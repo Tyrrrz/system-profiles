@@ -1,20 +1,18 @@
 {
-  config = {
-    security.rtkit.enable = true;
+  security.rtkit.enable = true;
 
-    services.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
 
-    services.pipewire = {
+  services.pipewire = {
+    enable = true;
+
+    alsa = {
       enable = true;
+      support32Bit = true;
+    };
 
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };
-
-      pulse = {
-        enable = true;
-      };
+    pulse = {
+      enable = true;
     };
   };
 }

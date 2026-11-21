@@ -1,6 +1,6 @@
 # System Profiles
 
-This is a collection of my (Linux) system profiles, powered by NixOS.
+This is a collection of my Linux system profiles, powered by NixOS.
 
 ## Usage
 
@@ -9,23 +9,20 @@ On the target machine, turn `/etc/nixos` into a flake with the following `flake.
 ```nix
 {
   inputs = {
-    # The profiles from this repository
     system-profiles.url = "github:Tyrrrz/system-profiles";
-
-    # Reuse the same nixpkgs to keep everything consistent
     nixpkgs.follows = "system-profiles/nixpkgs";
   };
 
   outputs =
     { nixpkgs, system-profiles, ... }:
     {
-      # The name must match the machine's hostname for `nixos-rebuild` to pick it up automatically
+      # Name should match the profile
       nixosConfigurations.nomad = nixpkgs.lib.nixosSystem {
         modules = [
-          # Specify the desired profile
+          # Desired profile
           system-profiles.nixosModules.nomad
 
-          # Machine-specific configuration
+          # Any additional machine-specific configuration
           ./hardware-configuration.nix
           ./configuration.nix
         ];
@@ -34,28 +31,14 @@ On the target machine, turn `/etc/nixos` into a flake with the following `flake.
 }
 ```
 
-Any out-of-band configuration (LUKS devices, extra packages, etc.) goes into `configuration.nix` (or any other file imported by the flake):
-
-```nix
-{ pkgs, ... }:
-{
-  boot.initrd.luks.devices."luks-...".device = "/dev/disk/by-uuid/...";
-
-  environment.systemPackages = with pkgs; [
-    android-tools
-  ];
-}
-```
-
-## Updating
-
-To update the profiles and packages on the target machine, run the following command:
+After that, you can rebuild the system with:
 
 ```bash
-sudo nix flake update --flake /etc/nixos
+# Replace `nomad` with the name of the desired profile
+sudo nixos-rebuild switch --flake /etc/nixos#nomad
 ```
 
 ## Development
 
-To test changes from a local checkout of this repository without pushing them, execute `./rebuild.sh`.
-To update the dependencies of the local checkout, run `./update.sh`.
+- `./rebuild.sh` - rebuilds the system with the current local checkout of this repository.
+- `./update.sh` - updates the dependencies of the local checkout.

@@ -1,14 +1,8 @@
 {
   imports = [
-    ./common/desktop
-    ./common/meta
-    ./common/programs
-    ./common/system
-    ./common/theme
+    ./common
   ];
 
-  config = {
-    networking.hostName = "nomad";
-    profile.primaryUserName = "tyrrrz";
-  };
+  profile.name = "nomad";
+  profile.primaryUserName = "tyrrrz";
 }

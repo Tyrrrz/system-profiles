@@ -1,74 +1,72 @@
 { config, pkgs, ... }:
 {
-  config = {
-    home-manager.users.${config.profile.primaryUserName} = {
-      home.packages = with pkgs; [
-        # Sound theme
-        sound-theme-freedesktop
+  home-manager.users.${config.profile.primaryUserName} = {
+    home.packages = with pkgs; [
+      # Sound theme
+      sound-theme-freedesktop
 
-        # Extra dependencies required for styling QT apps
-        kdePackages.qt6ct
-        libsForQt5.qt5ct
-      ];
+      # Extra dependencies required for styling QT apps
+      kdePackages.qt6ct
+      libsForQt5.qt5ct
+    ];
 
-      programs.noctalia.settings = {
-        theme = {
-          mode = "dark";
-          source = "community";
-          community_palette = "Tomorrow";
+    programs.noctalia.settings = {
+      theme = {
+        mode = "dark";
+        source = "community";
+        community_palette = "Tomorrow";
 
-          # Templates automatically re-style supported applications
-          # or UI libraries to match Noctalia's current theme.
-          templates = {
-            enable_builtin_templates = true;
-            builtin_ids = [
-              "ghostty"
-              "gtk3"
-              "gtk4"
-              "kcolorscheme"
-              "luciole"
-              "qt"
-              "umbriel"
-            ];
-          };
-        };
-
-        wallpaper = {
-          default.path = "${../../assets/wallpaper.jpg}";
-
-          transition = [ "fade" ];
-          transition_duration = 200;
-        };
-
-        audio = {
-          enable_sounds = true;
-          sound_theme = "freedesktop";
-        };
-
-        shell = {
-          screen_corners = {
-            enabled = true;
-          };
+        # Templates automatically re-style supported applications
+        # or UI libraries to match Noctalia's current theme.
+        templates = {
+          enable_builtin_templates = true;
+          builtin_ids = [
+            "ghostty"
+            "gtk3"
+            "gtk4"
+            "kcolorscheme"
+            "luciole"
+            "qt"
+            "umbriel"
+          ];
         };
       };
 
-      # Noctalia's templates require a bit of manual plumbing to work with GTK applications
-      gtk = {
-        enable = true;
+      wallpaper = {
+        default.path = "${../../assets/wallpaper.jpg}";
 
-        gtk3.theme = {
-          name = "adw-gtk3-dark";
-          package = pkgs.adw-gtk3;
+        transition = [ "fade" ];
+        transition_duration = 200;
+      };
+
+      audio = {
+        enable_sounds = true;
+        sound_theme = "freedesktop";
+      };
+
+      shell = {
+        screen_corners = {
+          enabled = true;
         };
+      };
+    };
 
-        gtk4.theme = null;
+    # Noctalia's templates require a bit of manual plumbing to work with GTK applications
+    gtk = {
+      enable = true;
+
+      gtk3.theme = {
+        name = "adw-gtk3-dark";
+        package = pkgs.adw-gtk3;
       };
 
-      # Noctalia's templates require a bit of manual plumbing to work with QT applications
-      qt = {
-        enable = true;
-        platformTheme.name = "qtct";
-      };
+      gtk4.theme = null;
+    };
+
+    # Noctalia's templates require a bit of manual plumbing to work with QT applications
+    qt = {
+      enable = true;
+      platformTheme.name = "qtct";
     };
   };
 }

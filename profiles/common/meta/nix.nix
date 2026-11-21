@@ -1,32 +1,30 @@
 { pkgs, ... }:
 {
-  config = {
-    system.stateVersion = "26.05";
+  system.stateVersion = "26.05";
 
-    nix = {
-      settings = {
-        experimental-features = [
-          "nix-command"
-          "flakes"
-        ];
-      };
-
-      # Flakes invalidate channels
-      channel.enable = false;
-
-      gc = {
-        automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 7d";
-      };
+  nix = {
+    settings = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
     };
 
-    nixpkgs.config.allowUnfree = true;
+    # Flakes invalidate channels
+    channel.enable = false;
 
-    documentation.nixos.enable = false;
-
-    environment.systemPackages = with pkgs; [
-      nixfmt
-    ];
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
   };
+
+  nixpkgs.config.allowUnfree = true;
+
+  documentation.nixos.enable = false;
+
+  environment.systemPackages = with pkgs; [
+    nixfmt
+  ];
 }
