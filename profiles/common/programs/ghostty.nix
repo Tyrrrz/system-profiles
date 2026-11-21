@@ -3,6 +3,11 @@
 {
   config = {
     home-manager.users.${config.profile.primaryUserName} = {
+      home.packages = with pkgs; [
+        # Sound theme
+        sound-theme-freedesktop
+      ];
+
       programs.ghostty = {
         enable = true;
 

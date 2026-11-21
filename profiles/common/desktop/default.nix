@@ -1,7 +1,7 @@
 {
   imports = [
+    ./noctalia
+    ./umbriel
     ./noctalia-greeter.nix
-    ./noctalia.nix
-    ./umbriel.nix
   ];
 }
