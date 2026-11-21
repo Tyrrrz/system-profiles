@@ -14,7 +14,6 @@
         p7zip
         proton-vpn
         tree
-        virt-manager
         vlc
       ];
     };
