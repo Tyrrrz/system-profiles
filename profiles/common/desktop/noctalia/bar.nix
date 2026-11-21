@@ -4,7 +4,7 @@
     home-manager.users.${config.profile.primaryUserName} = {
       programs.noctalia.settings = {
         bar.default = {
-          margin_ends = "1%";
+          margin_ends = 48;
           capsule = true;
 
           start = [
