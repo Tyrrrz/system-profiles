@@ -4,16 +4,18 @@
   config = {
     home-manager.users.${config.profile.primaryUserName} = {
       home.packages = with pkgs; [
+        evolution
         fastfetch
-        # The stable version is buggy, so use the one from unstable.
-        # TODO: Switch back to the stable version once we move to 26.11.
-        unstable.fragments
+        fragments
         gh
         google-chrome
         libreoffice
+        mission-center
         p7zip
         proton-vpn
         tree
+        virt-manager
+        vlc
       ];
     };
   };

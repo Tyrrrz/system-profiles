@@ -1,34 +1,59 @@
 {
-  description = "Tyrrrz's System Profiles";
-
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixos-26.05";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Umbriel uses its own nixpkgs snapshot
+    umbriel = {
+      url = "github:noctalia-dev/umbriel/cachix";
+    };
+
+    # Noctalia suite uses its own nixpkgs snapshot
+    noctalia = {
+      url = "github:noctalia-dev/noctalia/cachix";
+    };
+
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "noctalia/nixpkgs";
+    };
+
+    luciole = {
+      url = "github:noctalia-dev/luciole";
+      inputs.nixpkgs.follows = "noctalia/nixpkgs";
+    };
   };
 
   outputs =
-    { home-manager, nixpkgs-unstable, ... }:
+    {
+      home-manager,
+      umbriel,
+      noctalia,
+      noctalia-greeter,
+      luciole,
+      ...
+    }:
 
     let
       mkProfile = path: {
         imports = [
           home-manager.nixosModules.home-manager
+          umbriel.nixosModules.default
+          noctalia-greeter.nixosModules.default
+          luciole.nixosModules.default
           path
         ];
 
-        # Exposes packages from the unstable branch as `pkgs.unstable.<name>`
-        nixpkgs.overlays = [
-          (final: _: {
-            unstable = import nixpkgs-unstable {
-              system = final.stdenv.hostPlatform.system;
-              config.allowUnfree = true;
-            };
-          })
+        home-manager.sharedModules = [
+          umbriel.homeModules.default
+          noctalia.homeModules.default
+          luciole.homeModules.default
         ];
       };
     in

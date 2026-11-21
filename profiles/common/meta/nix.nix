@@ -5,10 +5,15 @@
     system.stateVersion = "26.05";
 
     nix = {
-      settings.experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
+      settings = {
+        experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+      };
+
+      # Flakes invalidate channels
+      channel.enable = false;
 
       gc = {
         automatic = true;

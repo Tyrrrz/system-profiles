@@ -4,7 +4,7 @@
   options = {
     profile.primaryUserName = lib.mkOption {
       type = lib.types.str;
-      description = "Name of the user account, on a single-user system.";
+      description = "Name of the primary user account.";
     };
   };
 

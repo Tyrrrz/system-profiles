@@ -5,6 +5,12 @@
     home-manager.users.${config.profile.primaryUserName} = {
       programs.vscode = {
         enable = true;
+        mutableExtensionsDir = false;
+
+        argvSettings = {
+          # Explicitly use GNOME Keyring, even on non-GNOME environments
+          password-store = "gnome-libsecret";
+        };
 
         profiles.default = {
           extensions = with pkgs.vscode-extensions; [

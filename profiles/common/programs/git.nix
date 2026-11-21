@@ -8,8 +8,8 @@
 
         settings = {
           user = {
-            name = config.profile.primaryUserName;
-            email = "1935960+${config.profile.primaryUserName}@users.noreply.github.com";
+            name = "tyrrrz";
+            email = "1935960+tyrrrz@users.noreply.github.com";
           };
 
           init.defaultBranch = "prime";
