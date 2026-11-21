@@ -1,6 +1,6 @@
-# Linux Setup
+# System Profiles
 
-This is my current Linux setup, powered by NixOS.
+This is a collection of my (Linux) system profiles, powered by NixOS.
 
 ## Usage
 
@@ -10,21 +10,21 @@ On the target machine, turn `/etc/nixos` into a flake with the following `flake.
 {
   inputs = {
     # The profiles from this repository
-    linux-setup.url = "github:Tyrrrz/linux-setup";
+    system-profiles.url = "github:Tyrrrz/system-profiles";
 
     # Reuse the same nixpkgs to keep everything consistent
-    nixpkgs.follows = "linux-setup/nixpkgs";
+    nixpkgs.follows = "system-profiles/nixpkgs";
   };
 
   outputs =
-    { nixpkgs, linux-setup, ... }:
+    { nixpkgs, system-profiles, ... }:
 
     {
       # The name must match the machine's hostname for `nixos-rebuild` to pick it up automatically
       nixosConfigurations.nomad = nixpkgs.lib.nixosSystem {
         modules = [
           # Specify the desired profile
-          linux-setup.nixosModules.nomad
+          system-profiles.nixosModules.nomad
 
           # Machine-specific configuration
           ./hardware-configuration.nix

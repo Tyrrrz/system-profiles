@@ -7,4 +7,4 @@ NIX_CONFIG_DIR_PATH="${NIX_CONFIG_DIR_PATH:-/etc/nixos}"
 
 sudo nixos-rebuild switch \
   --flake "$NIX_CONFIG_DIR_PATH" \
-  --override-input linux-setup "path:$REPO_DIR_PATH"
+  --override-input system-profiles "path:$REPO_DIR_PATH"
