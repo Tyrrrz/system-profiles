@@ -1,10 +1,8 @@
 { config, ... }:
-
 {
   config = {
     home-manager.users.${config.profile.primaryUserName} =
       { config, ... }:
-
       {
         programs.umbriel.settings = {
           keybinds = {

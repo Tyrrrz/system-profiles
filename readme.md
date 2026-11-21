@@ -18,7 +18,6 @@ On the target machine, turn `/etc/nixos` into a flake with the following `flake.
 
   outputs =
     { nixpkgs, system-profiles, ... }:
-
     {
       # The name must match the machine's hostname for `nixos-rebuild` to pick it up automatically
       nixosConfigurations.nomad = nixpkgs.lib.nixosSystem {
@@ -39,7 +38,6 @@ Any out-of-band configuration (LUKS devices, extra packages, etc.) goes into `co
 
 ```nix
 { pkgs, ... }:
-
 {
   boot.initrd.luks.devices."luks-...".device = "/dev/disk/by-uuid/...";
 

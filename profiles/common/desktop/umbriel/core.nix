@@ -1,5 +1,4 @@
 { config, ... }:
-
 {
   config = {
     # Install Umbriel, register its session, and set up the screen sharing portal
@@ -7,7 +6,6 @@
 
     home-manager.users.${config.profile.primaryUserName} =
       { config, ... }:
-
       {
         programs.umbriel = {
           enable = true;

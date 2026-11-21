@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-
 {
   config = {
     # Use GNOME Keyring for managing secrets

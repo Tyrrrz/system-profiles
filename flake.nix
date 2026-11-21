@@ -39,7 +39,6 @@
       luciole,
       ...
     }:
-
     let
       mkProfile = path: {
         imports = [

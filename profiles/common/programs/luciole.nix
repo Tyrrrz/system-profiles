@@ -1,5 +1,4 @@
 { config, ... }:
-
 {
   config = {
     # Support for Trash and remote folders
@@ -7,7 +6,6 @@
 
     home-manager.users.${config.profile.primaryUserName} =
       { config, ... }:
-
       {
         programs.luciole = {
           enable = true;
