@@ -44,25 +44,25 @@
               background_opacity = 0.0;
             };
           };
+        };
 
-          idle.behavior = {
-            lock = {
-              enabled = true;
-              timeout = 180;
-              action = "lock";
-            };
-
-            "screen-off" = {
-              enabled = true;
-              timeout = 190;
-              locked_timeout = 10;
-              action = "screen_off";
-            };
+        idle.behavior = {
+          lock = {
+            enabled = true;
+            timeout = 180;
+            action = "lock";
           };
 
-          # Sync Noctalia appearance to Noctalia Greeter
-          shell.greeter_sync.auto_sync = true;
+          "screen-off" = {
+            enabled = true;
+            timeout = 190;
+            locked_timeout = 10;
+            action = "screen_off";
+          };
         };
+
+        # Sync Noctalia appearance to Noctalia Greeter
+        shell.greeter_sync.auto_sync = true;
       };
     };
   };
