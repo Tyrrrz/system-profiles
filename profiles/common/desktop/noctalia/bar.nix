@@ -9,10 +9,12 @@
         start = [
           "launcher"
           "workspaces"
+          "taskbar"
           "cpu"
           "ram"
           "network_rx"
-          "media"
+          "network_tx"
+          "audio_visualizer"
         ];
 
         center = [
@@ -34,6 +36,15 @@
       };
 
       widget = {
+        audio_visualizer = {
+          mirrored = false;
+          centered = false;
+
+          actions = {
+            left = "panel-toggle control-center media";
+          };
+        };
+
         battery = {
           show_label = true;
         };
@@ -51,6 +62,10 @@
           font_weight = 800;
         };
 
+        cpu = {
+          show_value = false;
+        };
+
         media = {
           hide_when_no_media = true;
           hide_when_idle = false;
@@ -58,6 +73,22 @@
 
         network = {
           show_label = false;
+        };
+
+        network_rx = {
+          show_value = false;
+        };
+
+        network_tx = {
+          show_value = false;
+        };
+
+        ram = {
+          show_value = false;
+        };
+
+        taskbar = {
+          only_active_workspace = true;
         };
 
         tray = {
