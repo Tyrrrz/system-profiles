@@ -3,6 +3,8 @@
     ./common
   ];
 
-  profile.name = "nomad";
-  profile.primaryUserName = "tyrrrz";
+  profile = {
+    name = "nomad";
+    primaryUserName = "tyrrrz";
+  };
 }
