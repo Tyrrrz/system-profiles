@@ -44,6 +44,7 @@
         imports = [
           home-manager.nixosModules.home-manager
           umbriel.nixosModules.default
+          noctalia.nixosModules.default
           noctalia-greeter.nixosModules.default
           luciole.nixosModules.default
           path

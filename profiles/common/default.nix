@@ -9,14 +9,16 @@
   ];
 
   options = {
-    profile.name = lib.mkOption {
-      type = lib.types.str;
-      description = "Name of the profile.";
-    };
+    profile = {
+      name = lib.mkOption {
+        type = lib.types.str;
+        description = "Name of the profile.";
+      };
 
-    profile.primaryUserName = lib.mkOption {
-      type = lib.types.str;
-      description = "Name of the primary user account.";
+      primaryUserName = lib.mkOption {
+        type = lib.types.str;
+        description = "Name of the primary user account.";
+      };
     };
   };
 }
