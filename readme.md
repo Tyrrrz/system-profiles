@@ -11,8 +11,8 @@ This is a collection of my Linux system profiles, powered by NixOS.
 This setup combines one of the provided system profiles with the local configuration in `/etc/nixos/configuration.nix`.
 The latter can be used to store ephemeral machine-specific settings that don't need to be persisted in version control, such as hardware tweaks, LUKS mappings, temporary packages, etc.
 
-> **[!TIP]**
+> [!TIP]
 > After the initial successful rebuild, you can execute `bootstrap/rebuild.sh` without any arguments to target the last activated profile.
 
-> **[NOTE]**
+> [!TIP]
 > To rebuild the system using the local checkout of this repository instead of the remote one, execute `bootstrap/rebuild-override.sh <PROFILE>`.
