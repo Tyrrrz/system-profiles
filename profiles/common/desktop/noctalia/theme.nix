@@ -17,7 +17,7 @@
         templates = {
           enable_builtin_templates = true;
           builtin_ids = [
-            "ghostty"
+            "foot"
             "gtk3"
             "gtk4"
             "kcolorscheme"

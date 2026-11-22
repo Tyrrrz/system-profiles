@@ -7,7 +7,7 @@
         keybinds = {
           # Terminal
           "Mod+Return" = {
-            action = "spawn ghostty";
+            action = "spawn foot";
             repeat = false;
           };
 

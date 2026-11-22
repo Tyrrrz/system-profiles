@@ -1,7 +1,7 @@
 {
   imports = [
     ./bash.nix
-    ./ghostty.nix
+    ./foot.nix
     ./git.nix
     ./kdeconnect.nix
     ./luciole.nix
