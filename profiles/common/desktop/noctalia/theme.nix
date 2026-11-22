@@ -4,10 +4,6 @@
     home.packages = with pkgs; [
       # Sound theme
       sound-theme-freedesktop
-
-      # Extra dependencies required for styling QT apps
-      kdePackages.qt6ct
-      libsForQt5.qt5ct
     ];
 
     programs.noctalia.settings = {
