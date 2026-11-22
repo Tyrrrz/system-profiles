@@ -20,9 +20,9 @@
         ];
 
         end = [
+          "keyboard_layout"
           "tray"
           "notifications"
-          "keyboard_layout"
           "clipboard"
           "bluetooth"
           "network"
