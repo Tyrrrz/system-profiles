@@ -4,41 +4,15 @@ This is a collection of my Linux system profiles, powered by NixOS.
 
 ## Usage
 
-On the target machine, turn `/etc/nixos` into a flake with the following `flake.nix`:
+- Clone this repository to anywhere on the system
+- Execute `bootstrap/copy.sh` to create a local flake at `/etc/nixos/flake.nix`
+- Execute `bootstrap/rebuild.sh <PROFILE>` to rebuild the system with the specified profile (e.g. `bootstrap/rebuild.sh nomad`)
 
-```nix
-{
-  inputs = {
-    system-profiles.url = "github:Tyrrrz/system-profiles";
-    nixpkgs.follows = "system-profiles/nixpkgs";
-  };
+This setup combines one of the provided system profiles with the local configuration in `/etc/nixos/configuration.nix`.
+The latter can be used to store ephemeral machine-specific settings that don't need to be persisted in version control, such as hardware tweaks, LUKS mappings, temporary packages, etc.
 
-  outputs =
-    { nixpkgs, system-profiles, ... }:
-    {
-      # Name should match the profile
-      nixosConfigurations.nomad = nixpkgs.lib.nixosSystem {
-        modules = [
-          # Desired profile
-          system-profiles.nixosModules.nomad
+> **[!TIP]**
+> After the initial successful rebuild, you can execute `bootstrap/rebuild.sh` without any arguments to target the last activated profile.
 
-          # Any additional machine-specific configuration
-          ./hardware-configuration.nix
-          ./configuration.nix
-        ];
-      };
-    };
-}
-```
-
-After that, you can rebuild the system with:
-
-```bash
-# Replace `nomad` with the name of the desired profile
-sudo nixos-rebuild switch --flake /etc/nixos#nomad
-```
-
-## Development
-
-- `./rebuild.sh` - rebuilds the system with the current local checkout of this repository.
-- `./update.sh` - updates the dependencies of the local checkout.
+> **[NOTE]**
+> To rebuild the system using the local checkout of this repository instead of the remote one, execute `bootstrap/rebuild-override.sh <PROFILE>`.
