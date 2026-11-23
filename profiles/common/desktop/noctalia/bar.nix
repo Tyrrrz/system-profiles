@@ -120,10 +120,6 @@
         show_session_button = false;
       };
 
-      calendar = {
-        enabled = true;
-      };
-
       notification = {
         enable_daemon = true;
         position = "top_center";
