@@ -2,9 +2,9 @@
 {
   home-manager.users.${config.profile.primaryUserName} = {
     home.packages = with pkgs; [
-      # Sound theme & audio player for terminal bell
+      # Sound theme for terminal bell
       sound-theme-freedesktop
-      # Library for playing sounds from the command line
+      # Sound player for terminal bell
       libcanberra-gtk3
     ];
 
