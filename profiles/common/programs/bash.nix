@@ -10,6 +10,7 @@
       '';
     };
 
+    # Structured shell prompt
     programs.starship = {
       enable = true;
       enableBashIntegration = true;
@@ -65,6 +66,19 @@
           error_symbol = "[❯](red)";
         };
       };
+    };
+
+    # Replacement for `ls` and `tree` with better presentation and colors
+    programs.eza = {
+      enable = true;
+      enableBashIntegration = true;
+      icons = "auto";
+      git = true;
+    };
+
+    home.shellAliases = {
+      ls = "eza -lh --group-directories-first --icons";
+      tree = "eza --tree --icons";
     };
   };
 }

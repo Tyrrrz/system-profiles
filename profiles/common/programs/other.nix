@@ -11,7 +11,6 @@
       mission-center
       p7zip
       proton-vpn
-      tree
       vlc
     ];
   };

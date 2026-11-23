@@ -4,6 +4,8 @@
     packages = with pkgs; [
       dejavu_fonts
       noto-fonts-color-emoji
+      # Provides nerd font symbols to all monospaced fonts
+      nerd-fonts.symbols-only
     ];
 
     fontconfig.defaultFonts = {
