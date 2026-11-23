@@ -4,6 +4,7 @@
     programs.noctalia.settings = {
       bar.default = {
         margin_ends = 48;
+        widget_spacing = 8;
         capsule = true;
 
         capsule_group = [
