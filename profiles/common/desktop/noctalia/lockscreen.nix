@@ -49,6 +49,7 @@
         "screen-off" = {
           enabled = true;
           timeout = 180;
+          locked_timeout = 10;
           action = "screen_off";
         };
 
