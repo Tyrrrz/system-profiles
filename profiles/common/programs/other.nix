@@ -8,9 +8,11 @@
       gh
       google-chrome
       libreoffice
+      micro
       mission-center
       p7zip
       proton-vpn
+      ripgrep
       vlc
     ];
   };
