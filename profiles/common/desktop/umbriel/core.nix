@@ -32,10 +32,6 @@
             mouse = {
               accel_profile = "flat";
             };
-
-            focus = {
-              follows_mouse = "sloppy";
-            };
           };
 
           layout = {
