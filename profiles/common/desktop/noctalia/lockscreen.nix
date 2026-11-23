@@ -46,17 +46,22 @@
       };
 
       idle.behavior = {
-        lock = {
+        "screen-off" = {
           enabled = true;
           timeout = 180;
+          action = "screen_off";
+        };
+
+        lock = {
+          enabled = true;
+          timeout = 190;
           action = "lock";
         };
 
-        "screen-off" = {
+        suspend = {
           enabled = true;
-          timeout = 190;
-          locked_timeout = 10;
-          action = "screen_off";
+          timeout = 600;
+          action = "suspend";
         };
       };
 
