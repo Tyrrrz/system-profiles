@@ -6,14 +6,32 @@
         margin_ends = 48;
         capsule = true;
 
+        capsule_group = [
+          {
+            id = "sysmon";
+            members = [
+              "cpu"
+              "ram"
+              "network_rx"
+              "network_tx"
+            ];
+          }
+          {
+            id = "hardware";
+            members = [
+              "bluetooth"
+              "network"
+              "volume"
+              "brightness"
+            ];
+          }
+        ];
+
         start = [
           "launcher"
           "workspaces"
           "taskbar"
-          "cpu"
-          "ram"
-          "network_rx"
-          "network_tx"
+          "group:sysmon"
           "audio_visualizer"
         ];
 
@@ -26,10 +44,7 @@
           "tray"
           "notifications"
           "clipboard"
-          "bluetooth"
-          "network"
-          "volume"
-          "brightness"
+          "group:hardware"
           "battery"
           "session"
         ];
