@@ -23,12 +23,18 @@
               track_layout = "window";
             };
 
-            mouse.accel_profile = "flat";
-
             touchpad = {
               disable_while_typing = false;
               natural_scroll = true;
               tap = true;
+            };
+
+            mouse = {
+              accel_profile = "flat";
+            };
+
+            focus = {
+              follows_mouse = "sloppy";
             };
           };
 
