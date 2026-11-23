@@ -1,6 +1,6 @@
 {
   imports = [
-    ./bash.nix
+    ./shell
     ./foot.nix
     ./git.nix
     ./kdeconnect.nix

@@ -1,19 +1,12 @@
 { config, ... }:
 {
   home-manager.users.${config.profile.primaryUserName} = {
-    programs.bash = {
-      enable = true;
-
-      # Enable the bell sound
-      bashrcExtra = ''
-        bind 'set bell-style audible'
-      '';
-    };
-
-    # Structured shell prompt
+    # Generates the prompt string from a set of structured segments
     programs.starship = {
       enable = true;
       enableBashIntegration = true;
+      enableFishIntegration = true;
+      enableZshIntegration = true;
 
       settings = {
         add_newline = false;
@@ -66,19 +59,6 @@
           error_symbol = "[❯](red)";
         };
       };
-    };
-
-    # Replacement for `ls` and `tree` with better presentation and colors
-    programs.eza = {
-      enable = true;
-      enableBashIntegration = true;
-      icons = "auto";
-      git = true;
-    };
-
-    home.shellAliases = {
-      ls = "eza -lh --group-directories-first --icons";
-      tree = "eza --tree --icons";
     };
   };
 }
