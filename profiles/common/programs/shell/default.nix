@@ -1,7 +1,8 @@
 {
   imports = [
-    ./aliases.nix
     ./bash.nix
-    ./prompt.nix
+    ./bat.nix
+    ./eza.nix
+    ./starship.nix
   ];
 }

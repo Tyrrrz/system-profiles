@@ -13,13 +13,9 @@
       git = true;
     };
 
-    home.shellAliases.tree = "eza --tree";
-
-    # Replacement for `cat`
-    programs.bat = {
-      enable = true;
+    home.shellAliases = {
+      # Aliases for `ls` are already provided
+      tree = "eza --tree";
     };
-
-    home.shellAliases.cat = "bat";
   };
 }
