@@ -12,6 +12,5 @@
     ./starship.nix
     ./virt-manager.nix
     ./vscode.nix
-    ./yubikey.nix
   ];
 }

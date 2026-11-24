@@ -9,5 +9,6 @@
     ./power.nix
     ./users.nix
     ./virtualization.nix
+    ./yubikey.nix
   ];
 }
