@@ -8,15 +8,17 @@
     { nixpkgs, system-profiles, ... }:
     let
       mkSystem =
-        profile:
+        module:
         nixpkgs.lib.nixosSystem {
           modules = [
-            system-profiles.nixosModules.${profile}
+            module
             ./configuration.nix
           ];
         };
     in
     {
-      nixosConfigurations.nomad = mkSystem "nomad";
+      nixosConfigurations = nixpkgs.lib.mapAttrs (_: module: mkSystem module) (
+        builtins.removeAttrs system-profiles.nixosModules [ "default" ]
+      );
     };
 }
