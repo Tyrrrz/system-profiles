@@ -19,7 +19,7 @@
             keyboard = {
               layout = "us,ua";
               variant = ",winkeysenhanced";
-              options = "grp:alt_shift_toggle";
+              options = "grp:alts_toggle";
               track_layout = "window";
             };
 
