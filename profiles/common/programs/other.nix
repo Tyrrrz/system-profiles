@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 {
   programs = {
-    gamemode.enable = true;
     kdeconnect.enable = true;
     steam.enable = true;
   };
