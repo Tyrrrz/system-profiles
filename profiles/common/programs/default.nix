@@ -1,12 +1,14 @@
 {
   imports = [
-    ./shell
+    ./atuin.nix
+    ./bash.nix
+    ./bat.nix
+    ./eza.nix
     ./foot.nix
     ./git.nix
-    ./kdeconnect.nix
     ./luciole.nix
     ./other.nix
-    ./steam.nix
+    ./starship.nix
     ./virt-manager.nix
     ./vscode.nix
     ./yubikey.nix

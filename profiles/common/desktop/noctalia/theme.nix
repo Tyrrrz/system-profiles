@@ -17,6 +17,7 @@
         templates = {
           enable_builtin_templates = true;
           builtin_ids = [
+            "btop"
             "foot"
             "gtk3"
             "gtk4"

@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
 {
+  programs = {
+    gamemode.enable = true;
+    kdeconnect.enable = true;
+    steam.enable = true;
+  };
+
   home-manager.users.${config.profile.primaryUserName} = {
     home.packages = with pkgs; [
       evolution
@@ -7,14 +13,16 @@
       google-chrome
       libreoffice
       micro
-      mission-center
       proton-vpn
       vlc
+      xh
     ];
 
     programs = {
+      btop.enable = true;
       fastfetch.enable = true;
       gh.enable = true;
+      jq.enable = true;
       opencode.enable = true;
       ripgrep.enable = true;
     };
