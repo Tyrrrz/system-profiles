@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   # Support for Trash and remote folders
   services.gvfs.enable = true;
@@ -24,9 +29,9 @@
         text = ''
           #!${pkgs.runtimeShell}
           if [ "$#" -gt 0 ]; then
-              exec ${pkgs.vscode}/bin/code "$@"
+              exec ${lib.getExe config.programs.vscode.package} "$@"
           else
-              exec ${pkgs.vscode}/bin/code "$PWD"
+              exec ${lib.getExe config.programs.vscode.package} "$PWD"
           fi
         '';
       };

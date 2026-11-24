@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   home-manager.users.${config.profile.primaryUserName} = {
     home.packages = with pkgs; [
@@ -20,7 +25,7 @@
         bell = {
           urgent = "yes";
           notify = "yes";
-          command = "${pkgs.libcanberra-gtk3}/bin/canberra-gtk-play -f ${pkgs.sound-theme-freedesktop}/share/sounds/freedesktop/stereo/bell.oga";
+          command = "${lib.getExe' pkgs.libcanberra-gtk3 "canberra-gtk-play"} --id=bell";
           command-focused = "yes";
         };
       };
