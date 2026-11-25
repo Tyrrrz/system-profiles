@@ -62,7 +62,9 @@
         };
 
         battery = {
-          show_label = true;
+          display_mode = "graphic";
+          hide_when_plugged = false;
+          hide_when_full = true;
         };
 
         bluetooth = {
