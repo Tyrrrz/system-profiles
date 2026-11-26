@@ -12,5 +12,6 @@
     ./starship.nix
     ./virt-manager.nix
     ./vscode.nix
+    ./zoxide.nix
   ];
 }
