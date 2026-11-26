@@ -32,6 +32,8 @@
             mouse = {
               accel_profile = "flat";
             };
+
+            middle_click_paste = false;
           };
 
           layout = {
