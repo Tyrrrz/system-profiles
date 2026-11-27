@@ -17,6 +17,12 @@
             repeat = false;
           };
 
+          # AI assistant
+          "Super+Shift+F23" = {
+            action = "spawn opencode";
+            repeat = false;
+          };
+
           # Noctalia actions
           "Mod" = "spawn noctalia msg panel-toggle launcher";
           "Mod+L" = "spawn noctalia msg session lock";
