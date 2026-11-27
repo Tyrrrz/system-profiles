@@ -7,13 +7,13 @@
         keybinds = {
           # Terminal
           "Mod+Return" = {
-            action = "spawn foot";
+            action = "spawn xdg-terminal";
             repeat = false;
           };
 
           # File manager
           "Mod+E" = {
-            action = "spawn luciole";
+            action = "spawn xdg-open ~";
             repeat = false;
           };
 
