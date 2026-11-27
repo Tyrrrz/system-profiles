@@ -24,13 +24,32 @@
           };
 
           # Noctalia actions
-          "Mod" = "spawn noctalia msg panel-toggle launcher";
-          "Mod+L" = "spawn noctalia msg session lock";
-          "Print" = "spawn noctalia msg screenshot-region";
-          "Shift+Print" = "spawn noctalia msg screenshot-window";
-          "Mod+Print" = "spawn noctalia msg screenshot-annotate";
-          "Alt+Tab" = "spawn noctalia msg window-switcher hold";
-          "Alt+Shift+Tab" = "spawn noctalia msg window-switcher hold reverse";
+          "Mod" = {
+            action = "spawn noctalia msg panel-toggle launcher";
+            repeat = false;
+          };
+          "Mod+L" = {
+            action = "spawn noctalia msg session lock";
+            repeat = false;
+          };
+          "Print" = {
+            action = "spawn noctalia msg screenshot-region";
+            repeat = false;
+          };
+          "Shift+Print" = {
+            action = "spawn noctalia msg screenshot-window";
+            repeat = false;
+          };
+          "Mod+Print" = {
+            action = "spawn noctalia msg screenshot-annotate";
+            repeat = false;
+          };
+          "Alt+Tab" = {
+            action = "spawn noctalia msg window-switcher hold";
+          };
+          "Alt+Shift+Tab" = {
+            action = "spawn noctalia msg window-switcher hold reverse";
+          };
 
           # Route media buttons through Noctalia so that its OSDs are shown
           "XF86AudioRaiseVolume" = {
@@ -74,35 +93,107 @@
           };
 
           # Workspaces
-          "Mod+1" = "workspace-switch 1";
-          "Mod+2" = "workspace-switch 2";
-          "Mod+3" = "workspace-switch 3";
-          "Mod+4" = "workspace-switch 4";
-          "Mod+5" = "workspace-switch 5";
-          "Mod+6" = "workspace-switch 6";
-          "Mod+7" = "workspace-switch 7";
-          "Mod+8" = "workspace-switch 8";
-          "Mod+9" = "workspace-switch 9";
-          "Mod+Shift+1" = "window-move-to-workspace 1";
-          "Mod+Shift+2" = "window-move-to-workspace 2";
-          "Mod+Shift+3" = "window-move-to-workspace 3";
-          "Mod+Shift+4" = "window-move-to-workspace 4";
-          "Mod+Shift+5" = "window-move-to-workspace 5";
-          "Mod+Shift+6" = "window-move-to-workspace 6";
-          "Mod+Shift+7" = "window-move-to-workspace 7";
-          "Mod+Shift+8" = "window-move-to-workspace 8";
-          "Mod+Shift+9" = "window-move-to-workspace 9";
+          "Mod+1" = {
+            action = "workspace-switch 1";
+            repeat = false;
+          };
+          "Mod+2" = {
+            action = "workspace-switch 2";
+            repeat = false;
+          };
+          "Mod+3" = {
+            action = "workspace-switch 3";
+            repeat = false;
+          };
+          "Mod+4" = {
+            action = "workspace-switch 4";
+            repeat = false;
+          };
+          "Mod+5" = {
+            action = "workspace-switch 5";
+            repeat = false;
+          };
+          "Mod+6" = {
+            action = "workspace-switch 6";
+            repeat = false;
+          };
+          "Mod+7" = {
+            action = "workspace-switch 7";
+            repeat = false;
+          };
+          "Mod+8" = {
+            action = "workspace-switch 8";
+            repeat = false;
+          };
+          "Mod+9" = {
+            action = "workspace-switch 9";
+            repeat = false;
+          };
+          "Mod+Shift+1" = {
+            action = "window-move-to-workspace 1";
+            repeat = false;
+          };
+          "Mod+Shift+2" = {
+            action = "window-move-to-workspace 2";
+            repeat = false;
+          };
+          "Mod+Shift+3" = {
+            action = "window-move-to-workspace 3";
+            repeat = false;
+          };
+          "Mod+Shift+4" = {
+            action = "window-move-to-workspace 4";
+            repeat = false;
+          };
+          "Mod+Shift+5" = {
+            action = "window-move-to-workspace 5";
+            repeat = false;
+          };
+          "Mod+Shift+6" = {
+            action = "window-move-to-workspace 6";
+            repeat = false;
+          };
+          "Mod+Shift+7" = {
+            action = "window-move-to-workspace 7";
+            repeat = false;
+          };
+          "Mod+Shift+8" = {
+            action = "window-move-to-workspace 8";
+            repeat = false;
+          };
+          "Mod+Shift+9" = {
+            action = "window-move-to-workspace 9";
+            repeat = false;
+          };
 
           # Window focus and movement
-          "Mod+Left" = "window-focus-left";
-          "Mod+Down" = "window-focus-down";
-          "Mod+Up" = "window-focus-up";
-          "Mod+Right" = "window-focus-right";
-          "Mod+F1" = "window-focus-next";
-          "Mod+Shift+Left" = "column-move-left";
-          "Mod+Shift+Down" = "window-move-down";
-          "Mod+Shift+Up" = "window-move-up";
-          "Mod+Shift+Right" = "column-move-right";
+          "Mod+Left" = {
+            action = "window-focus-left";
+          };
+          "Mod+Down" = {
+            action = "window-focus-down";
+          };
+          "Mod+Up" = {
+            action = "window-focus-up";
+          };
+          "Mod+Right" = {
+            action = "window-focus-right";
+          };
+          "Mod+F1" = {
+            action = "window-focus-next";
+          };
+          "Mod+Shift+Left" = {
+            action = "column-move-left";
+          };
+          "Mod+Shift+Down" = {
+            action = "window-move-down";
+          };
+          "Mod+Shift+Up" = {
+            action = "window-move-up";
+          };
+          "Mod+Shift+Right" = {
+            action = "column-move-right";
+          };
 
           # Window state and layout
           "Mod+T" = {
@@ -125,24 +216,66 @@
             action = "window-toggle-fullscreen";
             repeat = false;
           };
-          "Mod+R" = "window-cycle-primary-extent";
-          "Mod+Shift+R" = "window-cycle-primary-extent-back";
-          "Mod+Minus" = "window-modify-primary-extent -0.02";
-          "Mod+Equal" = "window-modify-primary-extent +0.02";
-          "Mod+Ctrl+Minus" = "window-modify-secondary-extent -0.02";
-          "Mod+Ctrl+Equal" = "window-modify-secondary-extent +0.02";
-          "Mod+Comma" = "window-consume-left";
-          "Mod+Period" = "window-consume-right";
-          "Mod+Ctrl+Comma" = "window-consume-from-left";
-          "Mod+Ctrl+Period" = "window-consume-from-right";
+          "Mod+R" = {
+            action = "window-cycle-primary-extent";
+            repeat = false;
+          };
+          "Mod+Shift+R" = {
+            action = "window-cycle-primary-extent-back";
+            repeat = false;
+          };
+          "Mod+Minus" = {
+            action = "window-modify-primary-extent -0.02";
+            repeat = false;
+          };
+          "Mod+Equal" = {
+            action = "window-modify-primary-extent +0.02";
+            repeat = false;
+          };
+          "Mod+Ctrl+Minus" = {
+            action = "window-modify-secondary-extent -0.02";
+            repeat = false;
+          };
+          "Mod+Ctrl+Equal" = {
+            action = "window-modify-secondary-extent +0.02";
+            repeat = false;
+          };
+          "Mod+Comma" = {
+            action = "window-consume-left";
+            repeat = false;
+          };
+          "Mod+Period" = {
+            action = "window-consume-right";
+            repeat = false;
+          };
+          "Mod+Ctrl+Comma" = {
+            action = "window-consume-from-left";
+            repeat = false;
+          };
+          "Mod+Ctrl+Period" = {
+            action = "window-consume-from-right";
+            repeat = false;
+          };
           "Mod+W" = {
             action = "column-toggle-tabbed";
             repeat = false;
           };
-          "Mod+Alt+Right" = "column-focus-tab-next";
-          "Mod+Alt+Left" = "column-focus-tab-previous";
-          "Mod+WheelUp" = "window-focus-left";
-          "Mod+WheelDown" = "window-focus-right";
+          "Mod+Alt+Right" = {
+            action = "column-focus-tab-next";
+            repeat = false;
+          };
+          "Mod+Alt+Left" = {
+            action = "column-focus-tab-previous";
+            repeat = false;
+          };
+          "Mod+WheelUp" = {
+            action = "window-focus-left";
+            repeat = false;
+          };
+          "Mod+WheelDown" = {
+            action = "window-focus-right";
+            repeat = false;
+          };
           "Mod+O" = {
             action = "overview-toggle";
             repeat = false;
@@ -157,12 +290,18 @@
             action = "window-move-to-scratchpad";
             repeat = false;
           };
-          "Mod+Space" = "scratchpad-toggle";
+          "Mod+Space" = {
+            action = "scratchpad-toggle";
+            repeat = false;
+          };
           "Mod+Ctrl+Space" = {
             action = "window-restore-from-scratchpad";
             repeat = false;
           };
-          "Mod+Tab" = "scratchpad-focus-next";
+          "Mod+Tab" = {
+            action = "scratchpad-focus-next";
+            repeat = false;
+          };
         };
       };
     };
