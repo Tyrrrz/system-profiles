@@ -7,7 +7,7 @@
         keybinds = {
           # Terminal
           "Mod+Return" = {
-            action = "spawn xdg-terminal";
+            action = "spawn xdg-terminal-exec";
             repeat = false;
           };
 
