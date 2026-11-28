@@ -22,6 +22,7 @@
             members = [
               "bluetooth"
               "network"
+              "input_volume"
               "volume"
               "brightness"
             ];
@@ -82,6 +83,10 @@
 
         cpu = {
           show_value = false;
+        };
+
+        input_volume = {
+          show_label = false;
         };
 
         media = {
