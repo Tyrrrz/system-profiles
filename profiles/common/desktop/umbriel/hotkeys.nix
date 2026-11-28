@@ -18,7 +18,7 @@
           };
 
           # AI assistant
-          "Super+Shift+F23" = {
+          "XF86Assistan" = {
             action = "spawn opencode";
             repeat = false;
           };
