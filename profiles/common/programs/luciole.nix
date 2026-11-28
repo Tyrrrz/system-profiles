@@ -43,13 +43,11 @@
           # Define custom sidebar bookmarks for all file managers and pickers
           bookmarks = [
             "file:///etc/nixos NixOS Config"
-            "file://${config.home.homeDirectory}/Documents"
-            "file://${config.home.homeDirectory}/Downloads"
-            "file://${config.home.homeDirectory}/Music"
-            "file://${config.home.homeDirectory}/Pictures"
-            "file://${config.home.homeDirectory}/Projects"
-            "file://${config.home.homeDirectory}/Videos"
-          ];
+          ]
+          # Preserve default XDG bookmarks
+          ++ lib.mapAttrsToList (_: dir: "file://${dir} ${builtins.baseNameOf dir}") (
+            (lib.filterAttrs (_: dir: lib.isString dir) config.xdg.userDirs) // config.xdg.userDirs.extraConfig
+          );
         };
       };
     };
