@@ -24,5 +24,16 @@
       opencode.enable = true;
       ripgrep.enable = true;
     };
+
+    dconf.settings = {
+      "org/gtk/settings/file-chooser" = {
+        show-hidden = true;
+        sort-directories-first = true;
+      };
+      "org/gtk/gtk4/settings/file-chooser" = {
+        show-hidden = true;
+        sort-directories-first = true;
+      };
+    };
   };
 }
