@@ -18,7 +18,7 @@
           };
 
           # AI assistant
-          "XF86Assistan" = {
+          "XF86Assistant" = {
             action = "spawn opencode";
             repeat = false;
           };
