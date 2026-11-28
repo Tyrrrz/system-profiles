@@ -3,6 +3,7 @@
     ./atuin.nix
     ./bash.nix
     ./bat.nix
+    ./evolution.nix
     ./eza.nix
     ./foot.nix
     ./gamemode.nix

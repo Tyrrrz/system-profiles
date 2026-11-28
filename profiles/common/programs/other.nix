@@ -7,7 +7,6 @@
 
   home-manager.users.${config.profile.primaryUserName} = {
     home.packages = with pkgs; [
-      evolution
       fragments
       google-chrome
       libreoffice
