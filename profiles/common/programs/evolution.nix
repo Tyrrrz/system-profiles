@@ -7,7 +7,7 @@
 
     dconf.settings = {
       "org/gnome/evolution/mail" = {
-        layout = 1;
+        layout = 0;
       };
     };
   };
