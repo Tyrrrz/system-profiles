@@ -4,4 +4,11 @@
     isNormalUser = true;
     extraGroups = [ "wheel" ];
   };
+
+  home-manager.users.${config.profile.primaryUserName} = {
+    xdg.userDirs = {
+      enable = true;
+      createDirectories = true;
+    };
+  };
 }
