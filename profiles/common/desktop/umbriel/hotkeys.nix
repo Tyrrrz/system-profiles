@@ -19,7 +19,11 @@
 
           # AI assistant
           "XF86Assistant" = {
-            action = "spawn opencode";
+            action = "spawn xdg-terminal-exec opencode";
+            repeat = false;
+          };
+          "Super+Shift+XF86Assistant" = {
+            action = "spawn xdg-terminal-exec opencode";
             repeat = false;
           };
 
